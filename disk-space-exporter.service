@@ -1,0 +1,10 @@
+[Unit]
+Description=Disk Space Exporter
+
+[Service]
+ExecStart=/home/pi/git/disk-space-exporter/app.psgi --port 5050
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
