@@ -1,4 +1,4 @@
-# disk_space_exporter
+# disk-space-exporter
 Collects disk space over time for alerting. Nothing else.
 
 # Dependencies (needs >= Ubuntu 20.10)
