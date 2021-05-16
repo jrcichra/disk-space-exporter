@@ -1,5 +1,5 @@
-# disk_space_exporter
-Does nothing but collects disk space over time for alerting
+# disk-space-exporter
+Collects disk space over time for alerting. Nothing else.
 
 # Dependencies (needs >= Ubuntu 20.10)
 `sudo apt install perl libprometheus-tiny-perl libplack-perl`
