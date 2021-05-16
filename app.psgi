@@ -24,6 +24,9 @@ sub collect {
         my $used_percentage = $fields[4];
         my $mountpath       = $fields[5];
 
+        # remove percentage symbol
+        $used_percentage =~ s/%//;
+
         $prom->set( 'disk_size', $size,
             { "filesystem" => $filesystem, "mountpath" => $mountpath } );
         $prom->set( 'disk_used', $used,
