@@ -41,6 +41,7 @@ sub collect {
 builder {
     # collect stats when metrics is requested
     mount "/metrics" => sub {
+        $prom->clear;
         collect();
         return [ 200, [ 'Content-Type' => 'text/plain' ], [ $prom->format ] ];
     }
