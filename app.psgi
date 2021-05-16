@@ -27,12 +27,14 @@ sub collect {
         # remove the percentage symbol
         $used_percentage =~ s/%//;
 
-        $prom->set( 'disk_size', $size, { "filesystem" => $filesystem } );
-        $prom->set( 'disk_used', $used, { "filesystem" => $filesystem } );
+        $prom->set( 'disk_size', $size,
+            { "filesystem" => $filesystem, "mountpath" => $mountpath } );
+        $prom->set( 'disk_used', $used,
+            { "filesystem" => $filesystem, "mountpath" => $mountpath } );
         $prom->set( 'disk_available', $available,
-            { "filesystem" => $filesystem } );
+            { "filesystem" => $filesystem, "mountpath" => $mountpath } );
         $prom->set( 'disk_used_percentage', $used_percentage,
-            { "filesystem" => $filesystem } );
+            { "filesystem" => $filesystem, "mountpath" => $mountpath } );
     }
 }
 
