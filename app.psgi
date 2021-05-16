@@ -16,14 +16,13 @@ sub collect {
             $skip = 0;
             next;
         }
-        my @fields     = split( / {1,}/, $line );
-        my $filesystem = $fields[0];
-        my $size       = $fields[1];
-        my $used       = $fields[2];
-        my $available  = $fields[3];
-        my $used_percentage =
-          $used / $size * 100.0;    # better percentage than system
-        my $mountpath = $fields[5];
+        my @fields          = split( / {1,}/, $line );
+        my $filesystem      = $fields[0];
+        my $size            = $fields[1];
+        my $used            = $fields[2];
+        my $available       = $fields[3];
+        my $used_percentage = $fields[4];
+        my $mountpath       = $fields[5];
 
         $prom->set( 'disk_size', $size,
             { "filesystem" => $filesystem, "mountpath" => $mountpath } );
