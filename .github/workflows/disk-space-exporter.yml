@@ -68,3 +68,8 @@ jobs:
             org.opencontainers.image.created=${{ steps.prep.outputs.created }}
             org.opencontainers.image.revision=${{ github.sha }}
             org.opencontainers.image.licenses=${{ fromJson(steps.repo.outputs.result).license.spdx_id }}
+      - name: Test
+        run: |
+          docker run -d --privileged -p 5000:5000 jrcichra/disk-space-exporter:${{ steps.prep.outputs.version }}
+          sleep 10
+          curl -v http://localhost:5000
