@@ -1,3 +1,6 @@
+# Deprecated
+Just use node exporter and `(1- node_filesystem_avail_bytes / node_filesystem_size_bytes) * 100`
+
 # disk-space-exporter
 Collects disk space over time for alerting. Nothing else.
 
